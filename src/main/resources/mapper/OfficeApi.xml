@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.uib.pbyt.mapper.OfficeApiMapper">
+    
+	<sql id="officeApiColumns">
+	    id as "id",
+        parent_id as "parentId",
+        parent_ids as "parentIds",
+        name as "name",
+        sort as "sort",
+        province_name as "provinceName",
+        province_code as "provinceCode",
+        city_name as "cityName",
+        city_code as "cityCode",
+        type as "type",
+        category as "category",
+        grade as "grade",
+        address as "address",
+        zip_code as "zipCode",
+        master as "master",
+        phone as "phone",
+        fax as "fax",
+        email as "email",
+        USEABLE as "USEABLE",
+        PRIMARY_PERSON as "PRIMARY_PERSON",
+        DEPUTY_PERSON as "DEPUTY_PERSON",
+        create_by as "createBy",
+        create_date as "createDate",
+        update_by as "updateBy",
+        update_date as "updateDate",
+        remarks as "remarks",
+        del_flag as "delFlag",
+        county_name as "countyName",
+        county_code as "countyCode"
+	</sql>
+	
+	<sql id="officeApiJoins">
+		
+	</sql>
+    
+	<select id="getOfficeApi" resultType="com.uib.pbyt.entity.OfficeApi">
+		SELECT 
+			<include refid="officeApiColumns"/>
+		FROM t_office a
+		<include refid="officeApiJoins"/>
+		<where>
+		   a.del_flag='0'
+		    <if test="id != null and id != ''">
+				AND a.id=#{id}
+			</if>
+		</where>
+	</select>
+	
+	<select id="findListByCategory" resultType="String">
+		SELECT 
+			code as 'id'
+		FROM t_office t
+		<where>
+			<if test="condition != null and condition != ''">
+				and SUBSTRING(t.category,1,1) = 1
+			</if>
+			<if test="proxy != null and proxy != ''">
+				or SUBSTRING(t.category,3,1) = 1
+			</if>
+			and t.del_flag = 0
+		</where>
+	</select>
+	
+	
+</mapper>
