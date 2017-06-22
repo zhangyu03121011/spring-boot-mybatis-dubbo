@@ -24,7 +24,7 @@ import com.uib.pbyt.service.IMemMemberService;
  * @author luoxf
  * @version 2017-03-28
  */
-@com.alibaba.dubbo.config.annotation.Service
+@Service
 public class ChannelOfficeService implements IChannelOfficeService {
 	
 	Logger logger = LoggerFactory.getLogger(ChannelOfficeService.class);

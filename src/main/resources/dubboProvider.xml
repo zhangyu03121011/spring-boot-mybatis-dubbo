@@ -22,8 +22,6 @@
 	<!-- 用dubbo协议在20880端口暴露服务 -->
    	<dubbo:protocol name="dubbo" port="20880" threadpool="cached" threads="1000" accepts="2000"/>
 	<!-- 要暴露的服务接口 -->  
-	<!--  前台领取优惠劵-->
-	<dubbo:service interface="com.uib.pbyt.service.IChannelOfficeService" ref="channelOfficeService" timeout="3000" version="1.4"/>
 	<!--  查询机构-->
 	<dubbo:service interface="com.uib.pbyt.service.IChannelService" ref="channelService" timeout="3000" version="1.4"/>
 </beans>
