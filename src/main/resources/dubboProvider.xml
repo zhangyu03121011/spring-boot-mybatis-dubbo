@@ -16,9 +16,9 @@
    	<!-- 使用注解方式暴露接口 -->     
     <dubbo:annotation package="com.uib.pbyt.service.*" />  
     	<!-- 生产 -->
-<!-- 	<dubbo:registry protocol="zookeeper" address="zookeeper://10.60.11.28:2281" check="false"></dubbo:registry> -->
+	<dubbo:registry protocol="zookeeper" address="zookeeper://10.60.11.28:2281" check="false"></dubbo:registry>
    	<!-- 使用zookeeper注册中心暴露服务地址 -->  
-   	<dubbo:registry protocol="zookeeper" address="zookeeper://10.4.1.208:2381" check="false"></dubbo:registry>
+<!--    	<dubbo:registry protocol="zookeeper" address="zookeeper://10.4.1.208:2381" check="false"></dubbo:registry> -->
 	<!-- 用dubbo协议在20880端口暴露服务 -->
    	<dubbo:protocol name="dubbo" port="20880" threadpool="cached" threads="1000" accepts="2000"/>
 	<!-- 要暴露的服务接口 -->  
