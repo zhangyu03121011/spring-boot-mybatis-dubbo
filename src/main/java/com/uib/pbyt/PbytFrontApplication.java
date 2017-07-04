@@ -4,9 +4,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.ImportResource;
+import org.springframework.session.data.redis.config.annotation.web.http.EnableRedisHttpSession;
 
 @SpringBootApplication
+@Configuration
+@EnableRedisHttpSession
 @ImportResource(locations = {"classpath:dubboProvider.xml","classpath:dubboConsumer.xml"})
 public class PbytFrontApplication {
 	private static Logger logger = LoggerFactory.getLogger(PbytFrontApplication.class);
