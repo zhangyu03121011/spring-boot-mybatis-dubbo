@@ -2,7 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>net.lbtech</groupId>
+	<groupId>com.test</groupId>
 	<artifactId>springboot-mybatis</artifactId>
 	<version>0.1</version>
 	<packaging>jar</packaging>
@@ -81,12 +81,66 @@
 	</dependencies>
 	
 	<build>
-		<finalName>pbyt-front</finalName>
+		<finalName>my-front</finalName>
+		<outputDirectory>${project.basedir}/target/classes/</outputDirectory>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<!-- 打包jar文件时，配置manifest文件，加入lib包的jar依赖 -->
+            <plugin>  
+                <groupId>org.apache.maven.plugins</groupId>  
+                <artifactId>maven-jar-plugin</artifactId>  
+                <configuration>  
+                    <archive>  
+                        <manifest>  
+                            <addClasspath>true</addClasspath>  
+                            <classpathPrefix>lib/</classpathPrefix>  
+                            <mainClass>com.test.MyApplication</mainClass>  
+                        </manifest>  
+                    </archive>  
+                </configuration>  
+            </plugin>  
+            <!-- 拷贝依赖的jar包到lib目录 -->  
+            <plugin>  
+                <groupId>org.apache.maven.plugins</groupId>  
+                <artifactId>maven-dependency-plugin</artifactId>  
+                <executions>  
+                    <execution>  
+                        <id>copy</id>  
+                        <phase>package</phase>  
+                        <goals>  
+                            <goal>copy-dependencies</goal>  
+                        </goals>  
+                        <configuration>  
+                            <outputDirectory>  
+                                ${project.build.directory}/lib  
+                            </outputDirectory>  
+                        </configuration>  
+                    </execution>  
+                </executions>  
+            </plugin>  	
+            
+            <plugin>
+			    <groupId>org.apache.maven.plugins</groupId>
+			    <artifactId>maven-assembly-plugin</artifactId>
+			    <version>2.2.1</version>
+			    <configuration>
+			    	<descriptors>
+			         	<descriptor>src/main/assembly/assembly.xml</descriptor>
+			      	</descriptors>
+			    </configuration>
+			    <executions>
+			      <execution>
+			        <id>make-assembly</id>
+			        <phase>package</phase>
+			        <goals>
+			          <goal>single</goal>
+			        </goals>
+			      </execution>
+			    </executions>
+		  	</plugin>
 		</plugins>
 	</build>
 </project>

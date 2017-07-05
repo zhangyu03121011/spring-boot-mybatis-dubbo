@@ -13,22 +13,19 @@
     <fileSet>
       <outputDirectory>/</outputDirectory>
       <includes>
-        <include>README.txt</include>
+        <include>README.md</include>
       </includes>
     </fileSet>
     <fileSet>
     	<directory>${project.build.directory}/</directory>
       	<outputDirectory>/</outputDirectory>
       	<includes>
-        	<include>pbyt-front.jar</include>
+        	<include>my-front.jar</include>
       	</includes>
     </fileSet>
 <!--     <fileSet> -->
 <!--     	<directory>${project.build.directory}/</directory> -->
 <!--       	<outputDirectory>/log</outputDirectory> -->
-<!--       	<includes> -->
-<!--         	<include>run.sh</include> -->
-<!--       	</includes> -->
 <!--     </fileSet> -->
     <fileSet>
 		<directory>src/main/scripts</directory>
@@ -38,5 +35,12 @@
         	<include>run.bat</include>
       	</includes>
     </fileSet>
+<!--     <fileSet> -->
+<!-- 		<directory>/</directory> -->
+<!--     	<outputDirectory>/</outputDirectory> -->
+<!--       	<includes> -->
+<!--         	<include>README.md</include> -->
+<!--       	</includes> -->
+<!--     </fileSet> -->
   </fileSets>
 </assembly>

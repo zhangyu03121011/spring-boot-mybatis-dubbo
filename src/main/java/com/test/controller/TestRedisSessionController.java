@@ -1,4 +1,4 @@
-package com.uib.pbyt.controller;
+package com.test.controller;
 
 import java.util.HashMap;
 import java.util.Map;
