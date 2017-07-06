@@ -3,10 +3,10 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>net.lbtech</groupId>
-	<artifactId>pbyt-front</artifactId>
-	<version>1.4</version>
+	<artifactId>spring-boot-mybatis-dubbo</artifactId>
+	<version>0.1</version>
 	<packaging>jar</packaging>
-	<name>pbyt-front</name>
+	<name>spring-boot-mybatis-dubbo</name>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
@@ -129,9 +129,13 @@
 	</dependencies>
 	
 	<build>
-		<finalName>pbyt-front</finalName>
+		<finalName>${project.artifactId}</finalName>
 		<outputDirectory>${project.basedir}/target/classes/</outputDirectory>
 		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
 			<!-- 打包jar文件时，配置manifest文件，加入lib包的jar依赖 -->
             <plugin>  
                 <groupId>org.apache.maven.plugins</groupId>  
@@ -141,10 +145,10 @@
                         <manifest>  
                             <addClasspath>true</addClasspath>  
                             <classpathPrefix>lib/</classpathPrefix>  
-                            <mainClass>net.lb.PbytFrontApplication</mainClass> 
+                            <mainClass>com.uib.pbyt.PbytFrontApplication</mainClass> 
                         </manifest>  
                     </archive>  
-                </configuration>  
+                </configuration>
             </plugin> 
             <plugin>  
                 <groupId>org.apache.maven.plugins</groupId>  
@@ -182,10 +186,6 @@
 			      </execution>
 			    </executions>
 			  </plugin>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
 		</plugins>
 	</build>
 </project>

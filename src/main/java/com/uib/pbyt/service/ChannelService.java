@@ -13,10 +13,8 @@ import org.springframework.transaction.annotation.Transactional;
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.alibaba.fastjson.JSONObject;
 import com.uib.pbyt.mapper.ChannelMapper;
-import com.uib.pbyt.service.IChannelMemberService;
-import com.uib.pbyt.service.IChannelService;
 
-@com.alibaba.dubbo.config.annotation.Service
+@Service
 @Transactional(readOnly = true)
 public class ChannelService implements IChannelService {
 
