@@ -2,11 +2,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>net.lbtech</groupId>
-	<artifactId>pbyt-front</artifactId>
-	<version>1.4</version>
+	<groupId>springboot</groupId>
+	<artifactId>spring-boot-mybatis-dubbo</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
-	<name>pbyt-front</name>
+	<name>spring-boot-mybatis-dubbo</name>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
@@ -19,6 +19,25 @@
 		<java.version>1.7</java.version>
 	</properties>
 	<dependencies>
+		<dependency>
+			<groupId>springboot</groupId>
+			<artifactId>springboot-common-util</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<exclusions>
+				<exclusion>
+            		<groupId>log4j</groupId>
+            		<artifactId>log4j</artifactId>
+            	</exclusion>
+            	<exclusion>
+            		<groupId>org.slf4j</groupId>
+            		<artifactId>slf4j-log4j12</artifactId>
+            	</exclusion>
+            	<exclusion>
+            		<groupId>javax.servlet</groupId>
+					<artifactId>servlet-api</artifactId>
+            	</exclusion>
+			</exclusions>
+		</dependency>
 		<dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -91,7 +110,7 @@
 	</dependencies>
 	
 	<build>
-		<finalName>pbyt-front</finalName>
+		<finalName>spring-boot-mybatis-dubbo</finalName>
 		<outputDirectory>${project.basedir}/target/classes/</outputDirectory>
 		<plugins>
 			<!-- 打包jar文件时，配置manifest文件，加入lib包的jar依赖 -->
@@ -103,7 +122,7 @@
                         <manifest>  
                             <addClasspath>true</addClasspath>  
                             <classpathPrefix>lib/</classpathPrefix>  
-                            <mainClass>net.lb.PbytFrontApplication</mainClass> 
+                            <mainClass>com.mm.dev.DevApplication</mainClass> 
                         </manifest>  
                     </archive>  
                 </configuration>  

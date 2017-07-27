@@ -20,7 +20,7 @@
     	<directory>${project.build.directory}/</directory>
       	<outputDirectory>/</outputDirectory>
       	<includes>
-        	<include>pbyt-front.jar</include>
+        	<include>spring-boot-mybatis-dubbo.jar</include>
       	</includes>
     </fileSet>
 <!--     <fileSet> -->
